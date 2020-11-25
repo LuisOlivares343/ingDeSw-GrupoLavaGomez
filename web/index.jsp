@@ -17,7 +17,7 @@
     <body>
         <header>
       <div>
-        <a href="index.html">
+        <a href="index.jsp">
           <img src="img/logolavagomez2020.png" class=logo>
         </a>
       </div>

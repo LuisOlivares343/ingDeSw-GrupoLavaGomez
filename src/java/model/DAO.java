@@ -7,7 +7,7 @@ public class DAO {
   Connect cn = new Connect();
   PreparedStatement ps;
   ResultSet rs;
-  int r=0;
+  int r;
   
   public int validar(User u){
     String sql  = "select * from usuarios where correo_usr=? and psw_usr=?";
@@ -21,6 +21,7 @@ public class DAO {
         r=r+1;
         u.setMail(rs.getString("correo_usr"));
         u.setPsw(rs.getString("psw_usr"));
+        u.setType(rs.getString("tipo_usr"));
       }
       if(r==1){
         return 1;
