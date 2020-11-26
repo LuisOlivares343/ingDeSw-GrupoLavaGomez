@@ -71,7 +71,7 @@ public class Create extends HttpServlet {
       con.close();
       
     } catch (SQLException e) {
-      System.out.println("NO SE SOBREESCRIBIÓ EL DATO: " + e.getMessage());
+      System.out.println("NO SE PUDO SOBREESCRIBIR EL DATO: " + e.getMessage());
     }
   }
 

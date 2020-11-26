@@ -57,7 +57,7 @@
         <button name="log" class=btns type="submit" value="login">Iniciar Sesión</button>
       </form>
     </section>
-
+      
     <footer class=footer>
       <hr width=700><br>
       Copyright &copy; 2020 GRUPO LAVAGÓMEZ

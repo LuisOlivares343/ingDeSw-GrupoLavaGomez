@@ -37,11 +37,9 @@ public class Login extends HttpServlet {
       r = dao.validar(u);
     
       if(r==1 && u.getType().equals("admin")){
-        System.out.println("HELLO R: "+r);
         r=0;
         request.getRequestDispatcher("activities.jsp").forward(request, response);
       }else{
-        System.out.println("HELLO R: "+r);
         request.getRequestDispatcher("login.jsp").forward(request, response);
         
       }
