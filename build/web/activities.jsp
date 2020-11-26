@@ -26,7 +26,7 @@
             </div>
             <nav class="nav">
                 <div>
-                    <a href="#.jsp">Reportes</a>
+                    <a href="reportes.jsp">Reportes</a>
                 </div>
                 <div>
                     <a href="activities.jsp">Actividades</a>

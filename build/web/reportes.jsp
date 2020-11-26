@@ -1,7 +1,7 @@
 <%-- 
-    Document   : activities
-    Created on : 20-nov-2020, 18:25:28
-    Author     : Luis Olivares
+    Document   : reportes
+    Created on : 25-nov-2020, 22:38:42
+    Author     : noble
 --%>
 
 <%@page import="model.Connect"%>
@@ -41,17 +41,16 @@
         </header>
 
         <section align=center>
-            <h1>Actividades</h1>
+            <h1>Reportes</h1>
         </section>
 
         <table border="1" align="center" >
             <tr bgcolor="#ccc">
+                <th>Id Reporte</th>
+                <th>Fecha</th>
+                <th>Observaciones</th>
+                <th>Duraci&oacute;n (min)</th>
                 <th>Id Actividad</th>
-                <th>Actividad</th>
-                <th>&Aacute;rea</th>
-                <th>Encargado</th>
-                <th>Inicio de actividad</th>
-                <th>T&eacute;rmino de actividad</th>
             </tr>
 
             <%
@@ -62,23 +61,22 @@
               try {
                 con = cn.getConnection();
                 st = con.createStatement();
-                rs = st.executeQuery("select * from actividades");
+                rs = st.executeQuery("select * from reportes");
 
                 while (rs.next()) {
             %>
             <tr>
-                <th> <%=rs.getString("id_act")%> </th>
-                <th> <%=rs.getString("nombre_act")%>  </th>
-                <th> <%=rs.getString("area_act")%>    </th>
-                <th> <%=rs.getString("lider_act")%>   </th>
-                <th> <%=rs.getString("ini_act")%>     </th>
-                <th> <%=rs.getString("fin_act")%>     </th>
+                <th> <%=rs.getString("id_reporte")%> </th>
+                <th> <%=rs.getString("fecha_reporte")%>  </th>
+                <th> <%=rs.getString("observaciones_rep")%>    </th>
+                <th> <%=rs.getString("duracion_rep")%>   </th>
+                <th> <%=rs.getString("actividad_rep")%>     </th>
                 <th> 
                     <a>
                         <img src="img/icon_details.png" width="18px" height="auto">
                     </a>
                     |
-                    <a href="delete.jsp?cod=<%=rs.getString("id_act")%>">
+                    <a href="deleteRep.jsp?cod=<%=rs.getString("id_reporte")%>">
                         <img src="img/icon_delete.png" width="18px" height="auto">
                     </a>
                 </th>

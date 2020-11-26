@@ -1,6 +1,6 @@
 <%-- 
-    Document   : detele
-    Created on : 23-nov-2020, 18:36:59
+    Document   : deleteRep
+    Created on : 25-nov-2020, 22:54:59
     Author     : noble
 --%>
 
@@ -23,8 +23,8 @@
           try {
             con = cn.getConnection();
             st = con.createStatement();
-            st.executeUpdate("delete from actividades where id_act='"+cod+"'");
-            request.getRequestDispatcher("activities.jsp").forward(request, response);
+            st.executeUpdate("delete from reportes where id_reporte='"+cod+"'");
+            request.getRequestDispatcher("reportes.jsp").forward(request, response);
             st.close();
             rs.close();
             con.close();

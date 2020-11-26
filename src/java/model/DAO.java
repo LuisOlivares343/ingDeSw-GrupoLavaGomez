@@ -24,8 +24,10 @@ public class DAO {
         u.setType(rs.getString("tipo_usr"));
       }
       if(r==1){
+        r=0;
         return 1;
       }else{
+        r=0;
         return 0;
       }
     }catch(SQLException e){
