@@ -22,6 +22,7 @@ import model.DAO;
 public class Login extends HttpServlet {
   DAO dao = new DAO();
   User u = new User();
+  String mail, pass;
   int r;
   
   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -29,8 +30,8 @@ public class Login extends HttpServlet {
     response.setContentType("text/html;charset=UTF-8");
     String action = request.getParameter("log");
     if(action.equals("login")){
-      String mail = request.getParameter("user_mail");
-      String pass = request.getParameter("pass");
+      mail = request.getParameter("user_mail");
+      pass = request.getParameter("pass");
     
       u.setMail(mail);
       u.setPsw(pass);
@@ -39,11 +40,18 @@ public class Login extends HttpServlet {
       if(r==1 && u.getType().equals("admin")){
         r=0;
         request.getRequestDispatcher("activities.jsp").forward(request, response);
+      }else if(r==1 && u.getType().equals("operador")){
+        r=0;
+        request.getRequestDispatcher("activitiesOp.jsp").forward(request, response);
       }else{
         request.getRequestDispatcher("login.jsp").forward(request, response);
         
       }
     }
+  }
+  
+  public String getMail(){
+    return mail;
   }
 
   // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

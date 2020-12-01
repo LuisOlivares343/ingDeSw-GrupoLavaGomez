@@ -3,19 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/deleteRep.jsp</file>
             <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/src/java/model/Connect.java</file>
-            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/createactivities.jsp</file>
+            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/admin/activities.jsp</file>
             <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/src/java/controllers/NewServlet.java</file>
-            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/delete.jsp</file>
-            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/index.jsp</file>
+            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/src/java/controllers/Create.java</file>
+            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/src/java/model/DAO.java</file>
+            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/admin/delete.jsp</file>
+            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/admin/deleteRep.jsp</file>
+            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/admin/reportes.jsp</file>
+            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/admin/createactivities.jsp</file>
             <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/login.jsp</file>
             <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/src/java/controllers/Login.java</file>
             <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/css/style.css</file>
-            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/activities.jsp</file>
-            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/reportes.jsp</file>
-            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/src/java/controllers/Create.java</file>
-            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/src/java/model/DAO.java</file>
         </group>
     </open-files>
 </project-private>
