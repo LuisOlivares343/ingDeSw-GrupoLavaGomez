@@ -4,10 +4,10 @@
     Author     : noble
 --%>
 
-<%@page import="controllers.Login"%>
 <%@page import="model.Connect"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session = "true"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,15 +25,16 @@
                     <img src="img/logolavagomez2020.png" class=logo>
                 </a>
             </div>
+            <%
+              HttpSession sesion = request.getSession();
+              String usr = sesion.getAttribute("user").toString();
+            %>
             <nav class="nav">
-                <div>
-                    <a href="reportes.jsp">Reportes</a>
-                </div>
                 <div>
                     <a href="activitiesOp.jsp">Mis actividades</a>
                 </div>
                 <div>
-                    <a href="#.jsp">Mi cuenta</a>
+                    <a href="myAccount.jsp">Mi cuenta (<% out.print(usr); %>)</a>
                 </div>
             </nav>
         </header>
@@ -61,7 +62,7 @@
               try {
                 con = cn.getConnection();
                 st = con.createStatement();
-                rs = st.executeQuery("select * from actividades where lider_act = (select rfc_usr from usuarios where correo_usr='"+cod+"')");
+                rs = st.executeQuery("select * from actividades where lider_act = (select rfc_usr from usuarios where correo_usr='"+usr+"')");
 
                 while (rs.next()) {
             %>

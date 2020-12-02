@@ -6,11 +6,13 @@
 package controllers;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.User;
 import model.DAO;
 
@@ -42,16 +44,14 @@ public class Login extends HttpServlet {
         request.getRequestDispatcher("activities.jsp").forward(request, response);
       }else if(r==1 && u.getType().equals("operador")){
         r=0;
+        HttpSession session = request.getSession();
+        session.setAttribute("user", mail);
         request.getRequestDispatcher("activitiesOp.jsp").forward(request, response);
       }else{
         request.getRequestDispatcher("login.jsp").forward(request, response);
         
       }
     }
-  }
-  
-  public String getMail(){
-    return mail;
   }
 
   // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

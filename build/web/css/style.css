@@ -69,6 +69,7 @@ a:hover{ color: #ccc; }
   padding-right: 1em;
   padding-bottom: 2em;
 }
+
 .twoforms textarea{
   width: 100%;
   border: 2px solid #ccc;
@@ -113,7 +114,6 @@ th, td {
   padding-left: 1em;
   padding-right: 1em;
 }
-
 /*
 .menu{
     height: 75px;
