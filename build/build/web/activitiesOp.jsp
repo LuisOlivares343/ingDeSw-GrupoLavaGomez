@@ -1,15 +1,16 @@
 <%-- 
-    Document   : reportes
-    Created on : 25-nov-2020, 22:38:42
+    Document   : activitiesOp
+    Created on : 01-dic-2020, 11:12:47
     Author     : noble
 --%>
 
 <%@page import="model.Connect"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session = "true"%>
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
         <title>Actividades - GRUPO LAVAGÓMEZ</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,47 +25,36 @@
                     <img src="img/logolavagomez2020.png" class=logo>
                 </a>
             </div>
+            <%
+              HttpSession sesion = request.getSession();
+              String usr = sesion.getAttribute("user").toString();
+            %>
             <nav class="nav">
                 <div>
-                    <a href="reportes.jsp">Reportes</a>
+                    <a href="activitiesOp.jsp">Mis actividades</a>
                 </div>
                 <div>
-                    <a href="activities.jsp">Actividades</a>
-                </div>
-                <div>
-                    <a href="createactivities.jsp">Crear Actividad</a>
-                </div>
-                <div>
-                    <a href="#.jsp">Mi cuenta</a>
+                    <a href="myAccount.jsp">Mi cuenta (<% out.print(usr); %>)</a>
                 </div>
             </nav>
         </header>
 
         <section align=center>
-            <br></br>
-            <h1>Reportes</h1>
+            <h1>Actividades</h1>
         </section>
-        
-         <section align=center>
-             
-              <br></br>
-            <a href="reports/GenerarReporteGeneral.jsp" class = "btns">
-                Generar Reporte global 
-            </a>
-             <br></br>
-             
-        </section>
-        
+
         <table border="1" align="center" >
             <tr bgcolor="#ccc">
-                <th>Id Reporte</th>
-                <th>Fecha</th>
-                <th>Observaciones</th>
-                <th>Duraci&oacute;n (min)</th>
                 <th>Id Actividad</th>
+                <th>Actividad</th>
+                <th>&Aacute;rea</th>
+                <th>Encargado</th>
+                <th>Inicio de actividad</th>
+                <th>T&eacute;rmino de actividad</th>
             </tr>
 
             <%
+              String cod = request.getParameter("user_mail");
               Connection con = null;
               Connect cn = new Connect();
               Statement st = null;
@@ -72,28 +62,24 @@
               try {
                 con = cn.getConnection();
                 st = con.createStatement();
-                rs = st.executeQuery("select * from reportes");
+                rs = st.executeQuery("select * from actividades where lider_act = (select rfc_usr from usuarios where correo_usr='"+usr+"')");
 
                 while (rs.next()) {
             %>
             <tr>
-                <th> <%=rs.getString("id_reporte")%> </th>
-                <th> <%=rs.getString("fecha_reporte")%>  </th>
-                <th> <%=rs.getString("observaciones_rep")%>    </th>
-                <th> <%=rs.getString("duracion_rep")%>   </th>
-                <th> <%=rs.getString("actividad_rep")%>     </th>
+                <th> <%=rs.getString("id_act")%> </th>
+                <th> <%=rs.getString("nombre_act")%>  </th>
+                <th> <%=rs.getString("area_act")%>    </th>
+                <th> <%=rs.getString("lider_act")%>   </th>
+                <th> <%=rs.getString("ini_act")%>     </th>
+                <th> <%=rs.getString("fin_act")%>     </th>
                 <th> 
-                   
-                    <a href="" class = "btns">
-                        Generar Reporte
-                    </a>
-                    <br></br>
                     <a>
                         <img src="img/icon_details.png" width="18px" height="auto">
                     </a>
-
-                    <a href="deleteRep.jsp?cod=<%=rs.getString("id_reporte")%>">
-                        <img src="img/icon_delete.png" width="18px" height="auto">
+                    |
+                    <a href="delete.jsp?cod=<%=rs.getString("id_act")%>">
+                        <img src="img/icon_finish.png" width="18px" height="auto">
                     </a>
                 </th>
             </tr>        
