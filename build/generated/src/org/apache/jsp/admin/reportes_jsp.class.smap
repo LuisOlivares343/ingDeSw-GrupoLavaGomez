@@ -1,0 +1,18 @@
+SMAP
+reportes_jsp.java
+JSP
+*S JSP
+*F
++ 0 reportes.jsp
+admin/reportes.jsp
+*L
+5,52:46
+57,11:99
+67,2:110
+69,5:112,3
+74,5:127
+79:132,3
+80,5:135
+84,8:140
+91,9:148
+*E
