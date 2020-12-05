@@ -4,6 +4,8 @@
     Author     : Luis Olivares
 --%>
 
+<%@page import="model.Operations"%>
+<%@page import="controllers.Login"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -31,7 +33,6 @@
         </div>
       </nav>
     </header>
-
     <section align=center>
       <h1>Iniciar Sesión</h1>
     </section>
@@ -50,14 +51,11 @@
         <div align=left>
           <input type="password" class=txtfield name="pass" required=true/><br>
         </div>
-        <div align=center>
           <br>
-          <input type="checkbox" class=txtfield name="rmbr"/>Mantenerme conectado<br><br>
-        </div>
         <button name="log" class=btns type="submit" value="login">Iniciar Sesión</button>
       </form>
     </section>
-      
+
     <footer class=footer>
       <hr width=700><br>
       Copyright &copy; 2020 GRUPO LAVAGÓMEZ

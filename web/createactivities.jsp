@@ -4,9 +4,11 @@
     Author     : noble
 --%>
 
+<%@page import="model.User"%>
 <%@page import="model.Connect"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,6 +21,14 @@
     </head>
 
     <body>
+        <%
+              request.getSession();
+              User usu = (User) session.getAttribute("usuario");
+              
+              if(usu == null){
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+              }
+            %>
         <header>
             <div>
                 <a href="index.jsp">
@@ -36,7 +46,7 @@
                     <a href="createactivities.jsp">Crear Actividad</a>
                 </div>
                 <div>
-                    <a href="#.jsp">Mi cuenta</a>
+                    <a href="myAccountAd.jsp">Mi cuenta(<% out.print(usu.getMail());%>)</a>
                 </div>
             </nav>
         </header>
@@ -66,10 +76,6 @@
                         <div align=left>Fecha y hora de inicio</div>
                         <input type="date" class=txtfield name="act_beg_date" required=true/><br>
                         <input type="time" class=txtfield name="act_beg_time" required=true/><br><br>
-
-                        <div align=left>Fecha y hora de fin</div>
-                        <input type="date" class=txtfield name="act_end_date" required=true/><br>
-                        <input type="time" class=txtfield name="act_end_time" required=true/><br><br>
 
                         <div align=left>Encargado de la actividad</div>
                         <input type="textarea" class=txtfield name="act_leader" required=true/><br><br>

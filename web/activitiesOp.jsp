@@ -4,13 +4,14 @@
     Author     : noble
 --%>
 
+<%@page import="model.User"%>
 <%@page import="model.Connect"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session = "true"%>
 <!DOCTYPE html>
 <html>
-<head>
+    <head>
         <title>Actividades - GRUPO LAVAGÓMEZ</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,22 +20,26 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     </head>
     <body>
+        <%
+              request.getSession();
+              User usu = (User) session.getAttribute("usuario");
+              
+              if(usu == null){
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+              }
+            %>
         <header>
             <div>
                 <a href="index.jsp">
                     <img src="img/logolavagomez2020.png" class=logo>
                 </a>
             </div>
-            <%
-              HttpSession sesion = request.getSession();
-              String usr = sesion.getAttribute("user").toString();
-            %>
             <nav class="nav">
                 <div>
                     <a href="activitiesOp.jsp">Mis actividades</a>
                 </div>
                 <div>
-                    <a href="myAccount.jsp">Mi cuenta (<% out.print(usr); %>)</a>
+                    <a href="myAccount.jsp">Mi cuenta (<% out.print(usu.getMail()); %>)</a>
                 </div>
             </nav>
         </header>
@@ -50,7 +55,6 @@
                 <th>&Aacute;rea</th>
                 <th>Encargado</th>
                 <th>Inicio de actividad</th>
-                <th>T&eacute;rmino de actividad</th>
             </tr>
 
             <%
@@ -62,7 +66,7 @@
               try {
                 con = cn.getConnection();
                 st = con.createStatement();
-                rs = st.executeQuery("select * from actividades where lider_act = (select rfc_usr from usuarios where correo_usr='"+usr+"')");
+                rs = st.executeQuery("select * from actividades where lider_act = (select rfc_usr from usuarios where correo_usr='"+usu.getMail()+"') and estatus_act = 'no concluida'");
 
                 while (rs.next()) {
             %>
@@ -72,13 +76,8 @@
                 <th> <%=rs.getString("area_act")%>    </th>
                 <th> <%=rs.getString("lider_act")%>   </th>
                 <th> <%=rs.getString("ini_act")%>     </th>
-                <th> <%=rs.getString("fin_act")%>     </th>
                 <th> 
-                    <a>
-                        <img src="img/icon_details.png" width="18px" height="auto">
-                    </a>
-                    |
-                    <a href="delete.jsp?cod=<%=rs.getString("id_act")%>">
+                    <a href="endact.jsp?cod=<%=rs.getString("id_act")%>">
                         <img src="img/icon_finish.png" width="18px" height="auto">
                     </a>
                 </th>

@@ -92,6 +92,18 @@ a:hover{ color: #ccc; }
   border: 2px solid #06a4dc;
 }
 
+.btnsn{
+  text-align: center;
+  width: 60%;
+  height: auto;
+  background-color: #e1583b;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5em;
+  border-radius: 6px;
+  border: 2px solid #e1583b;
+}
+
 .footer{ 
   text-align: center;
   color: #ccc; 
@@ -113,6 +125,44 @@ th, td {
   padding-bottom: 0.2em;
   padding-left: 1em;
   padding-right: 1em;
+}
+
+.cuenta {
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  justify-content: space-around;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #06a4dc
+}
+
+.window-notice {
+    background: rgba(33, 41, 52, .85);
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    position: fixed;
+    z-index: 999;
+}
+
+.window-notice .content {
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(33, 41, 52, .75);
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 600px;
+    min-width: 320px !important;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.3rem;
 }
 /*
 .menu{

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : myActOp
-    Created on : 01-dic-2020, 12:04:55
+    Document   : myAccountAd
+    Created on : 03-dic-2020, 22:20:01
     Author     : noble
 --%>
 
@@ -20,7 +20,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     </head>
     <body>
-        <%
+        <header>
+            <div>
+                <a href="index.jsp">
+                    <img src="img/logolavagomez2020.png" class=logo>
+                </a>
+            </div>
+            <%
               request.getSession();
               User usu = (User) session.getAttribute("usuario");
               
@@ -28,18 +34,18 @@
                 request.getRequestDispatcher("login.jsp").forward(request, response);
               }
             %>
-        <header>
-            <div>
-                <a href="index.jsp">
-                    <img src="img/logolavagomez2020.png" class=logo>
-                </a>
-            </div>
             <nav class="nav">
                 <div>
-                    <a href="activitiesOp.jsp">Mis actividades</a>
+                    <a href="reportes.jsp">Reportes</a>
                 </div>
                 <div>
-                    <a href="myAccount.jsp">Mi cuenta(<% out.print(usu.getMail());%>)</a>
+                    <a href="activities.jsp">Actividades</a>
+                </div>
+                <div>
+                    <a href="createactivities.jsp">Crear Actividad</a>
+                </div>
+                <div>
+                    <a href="myAccountAd.jsp">Mi cuenta(<% out.print(usu.getMail());%>)</a>
                 </div>
             </nav>
         </header>

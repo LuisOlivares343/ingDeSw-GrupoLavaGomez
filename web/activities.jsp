@@ -4,9 +4,11 @@
     Author     : Luis Olivares
 --%>
 
+<%@page import="model.User"%>
 <%@page import="model.Connect"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,6 +20,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     </head>
     <body>
+        <%
+              request.getSession();
+              User usu = (User) session.getAttribute("usuario");
+              
+              if(usu == null){
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+              }
+            %>
         <header>
             <div>
                 <a href="index.jsp">
@@ -35,7 +45,7 @@
                     <a href="createactivities.jsp">Crear Actividad</a>
                 </div>
                 <div>
-                    <a href="#.jsp">Mi cuenta</a>
+                    <a href="myAccountAd.jsp">Mi cuenta(<% out.print(usu.getMail());%>)</a>
                 </div>
             </nav>
         </header>

@@ -17,6 +17,7 @@ public class DAO {
       ps.setString(1, u.getMail());
       ps.setString(2, u.getPsw());
       rs = ps.executeQuery();
+      
       while(rs.next()){
         r=r+1;
         u.setMail(rs.getString("correo_usr"));

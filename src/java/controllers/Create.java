@@ -6,7 +6,6 @@
 package controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Connect;
 
 @WebServlet(name = "create", urlPatterns = {"/create"})
@@ -24,54 +24,39 @@ public class Create extends HttpServlet {
   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
-    int act_id;
-    String act_name = request.getParameter("act_name");
-    String act_area = request.getParameter("act_area");
-    String act_begin = request.getParameter("act_beg_date") + " " + request.getParameter("act_beg_time");
-    String act_end = request.getParameter("act_end_date") + " " + request.getParameter("act_end_time");
-    String act_materials = request.getParameter("act_materials");
-    int act_time = Integer.parseInt(request.getParameter("act_time"));
-    String act_leader = request.getParameter("act_leader");
 
-    Connection con = null;
-    Connect cn = new Connect();
-    Statement st = null;
-    ResultSet rs = null;
-    try {
-      con = cn.getConnection();
-      st = con.createStatement();
-      rs = st.executeQuery("SELECT id_act FROM actividades ORDER BY id_act DESC LIMIT 1");
-      rs.next();
-      act_id = Integer.parseInt(rs.getString("id_act")) + 1;
-      st.executeUpdate("insert into actividades values(" + act_id + ",'" + act_name + "','" + act_area + "','" + act_begin + "','" + act_end + "','" + act_materials + "'," + act_time + ",'" + act_leader + "')");
-      
-      try (PrintWriter out = response.getWriter()) {
-        out.println("<!DOCTYPE html>");
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\"/>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<div id=\"popup\" class=\"overlay\">" +
-                "<div id=\"popupBody\">" +
-                "<h2>Título de la ventana</h2>" +
-                "<a id=\"cerrar\" href=\"#\">&times;</a>" +
-                "<div class=\"popupContent\">" +
-                "<p>Este es el contenido</p>" +
-                "</div>" +
-                "</div>" +
-                "</div>");
-        out.println("</body>");
-        out.println("</html>");
+    HttpSession session = request.getSession();
+    if (session.getAttribute("usuario") != null) {
+      int act_id;
+      String act_name = request.getParameter("act_name");
+      String act_area = request.getParameter("act_area");
+      String act_begin = request.getParameter("act_beg_date") + " " + request.getParameter("act_beg_time");
+      String act_materials = request.getParameter("act_materials");
+      int act_time = Integer.parseInt(request.getParameter("act_time"));
+      String act_leader = request.getParameter("act_leader");
+
+      Connection con = null;
+      Connect cn = new Connect();
+      Statement st = null;
+      ResultSet rs = null;
+      try {
+        con = cn.getConnection();
+        st = con.createStatement();
+        rs = st.executeQuery("SELECT id_act FROM actividades ORDER BY id_act DESC LIMIT 1");
+        rs.next();
+        act_id = Integer.parseInt(rs.getString("id_act")) + 1;
+        st.executeUpdate("insert into actividades values(" + act_id + ",'" + act_name + "','" + act_area + "','" + act_begin + "', NULL ,'" + act_materials + "'," + act_time + ", 'no concluida' ,'" + act_leader + "')");
+
+        request.getRequestDispatcher("createactivities.jsp").forward(request, response);
+        st.close();
+        rs.close();
+        con.close();
+
+      } catch (SQLException e) {
+        System.out.println("NO SE PUDO SOBREESCRIBIR EL DATO: " + e.getMessage());
       }
-      
-      request.getRequestDispatcher("createactivities.jsp").forward(request, response);
-      st.close();
-      rs.close();
-      con.close();
-      
-    } catch (SQLException e) {
-      System.out.println("NO SE PUDO SOBREESCRIBIR EL DATO: " + e.getMessage());
+    }else{
+      request.getRequestDispatcher("login.jsp").forward(request, response);
     }
   }
 
