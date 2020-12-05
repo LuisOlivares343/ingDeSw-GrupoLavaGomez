@@ -51,9 +51,16 @@
         </header>
 
         <section align=center>
+            <br>
             <h1>Reportes</h1>
         </section>
-
+        
+         <section align=center>
+              <br>
+              <a href="reports/GenerarReporteGeneral.jsp" class="btns">Generar Reporte global</a><br>
+             <br>
+        </section>
+        
         <table border="1" align="center" >
             <tr bgcolor="#ccc">
                 <th>Id Reporte</th>
@@ -81,14 +88,20 @@
                 <th> <%=rs.getString("observaciones_rep")%>    </th>
                 <th> <%=rs.getString("duracion_rep")%>   </th>
                 <th> <%=rs.getString("actividad_rep")%>     </th>
-                <th> 
+                <th>
                     <a>
                         <img src="img/icon_details.png" width="18px" height="auto">
                     </a>
-                    |
+
                     <a href="deleteRep.jsp?cod=<%=rs.getString("id_reporte")%>">
                         <img src="img/icon_delete.png" width="18px" height="auto">
                     </a>
+                </th>
+                <th>
+                    <a href="" class="btns">
+                        Generar Reporte
+                    </a>
+                    <br>
                 </th>
             </tr>        
             <%  }

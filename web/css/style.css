@@ -82,7 +82,7 @@ a:hover{ color: #ccc; }
 
 .btns{
   text-align: center;
-  width: 60%;
+  width: 50%;
   height: auto;
   background-color: #06a4dc;
   color: #fff;
@@ -120,7 +120,7 @@ table, th, td {
   border-collapse: collapse;
 }
 
-th, td {
+th, td, tr {
   padding-top: 0.2em;
   padding-bottom: 0.2em;
   padding-left: 1em;

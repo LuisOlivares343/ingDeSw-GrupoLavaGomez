@@ -54,7 +54,7 @@
                 <div align=left>
                     Fecha y hora de fin
                 </div>
-                <select name="cod">
+                <select name="cod" hidden="true">
                     <option><%out.print(cod);%></option>
                 </select>
                 <input type="date" class=txtfield name="act_end_date" required=true/><br>

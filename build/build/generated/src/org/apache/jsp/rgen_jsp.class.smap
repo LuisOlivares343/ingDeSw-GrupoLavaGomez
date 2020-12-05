@@ -1,0 +1,12 @@
+SMAP
+rgen_jsp.java
+JSP
+*S JSP
+*F
++ 0 rgen.jsp
+rgen.jsp
+*L
+5,20:53
+26,22:75
+47,4:97
+*E

@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import model.User;
 import model.Connect;
 import java.sql.*;
 
@@ -43,61 +44,65 @@ public final class activitiesOp_jsp extends org.apache.jasper.runtime.HttpJspBas
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write("<html>\n");
-      out.write("<head>\n");
-      out.write("        <title>Actividades - GRUPO LAVAGÓMEZ</title>\n");
-      out.write("        <meta charset=\"UTF-8\">\n");
-      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
-      out.write("        <link rel=stylesheet type=\"text/css\" href=\"css/style.css\">\n");
-      out.write("        <link rel=stylesheet type=\"text/css\" href=\"css/normalize.css\">\n");
-      out.write("        <link href=\"https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap\" rel=\"stylesheet\">\n");
-      out.write("    </head>\n");
-      out.write("    <body>\n");
-      out.write("        <header>\n");
-      out.write("            <div>\n");
-      out.write("                <a href=\"index.jsp\">\n");
-      out.write("                    <img src=\"img/logolavagomez2020.png\" class=logo>\n");
-      out.write("                </a>\n");
-      out.write("            </div>\n");
-      out.write("            ");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("<html>\r\n");
+      out.write("    <head>\r\n");
+      out.write("        <title>Actividades - GRUPO LAVAGÓMEZ</title>\r\n");
+      out.write("        <meta charset=\"UTF-8\">\r\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n");
+      out.write("        <link rel=stylesheet type=\"text/css\" href=\"css/style.css\">\r\n");
+      out.write("        <link rel=stylesheet type=\"text/css\" href=\"css/normalize.css\">\r\n");
+      out.write("        <link href=\"https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap\" rel=\"stylesheet\">\r\n");
+      out.write("    </head>\r\n");
+      out.write("    <body>\r\n");
+      out.write("        ");
 
-              HttpSession sesion = request.getSession();
-              String usr = sesion.getAttribute("user").toString();
+              request.getSession();
+              User usu = (User) session.getAttribute("usuario");
+              
+              if(usu == null){
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+              }
             
-      out.write("\n");
-      out.write("            <nav class=\"nav\">\n");
-      out.write("                <div>\n");
-      out.write("                    <a href=\"activitiesOp.jsp\">Mis actividades</a>\n");
-      out.write("                </div>\n");
-      out.write("                <div>\n");
+      out.write("\r\n");
+      out.write("        <header>\r\n");
+      out.write("            <div>\r\n");
+      out.write("                <a href=\"index.jsp\">\r\n");
+      out.write("                    <img src=\"img/logolavagomez2020.png\" class=logo>\r\n");
+      out.write("                </a>\r\n");
+      out.write("            </div>\r\n");
+      out.write("            <nav class=\"nav\">\r\n");
+      out.write("                <div>\r\n");
+      out.write("                    <a href=\"activitiesOp.jsp\">Mis actividades</a>\r\n");
+      out.write("                </div>\r\n");
+      out.write("                <div>\r\n");
       out.write("                    <a href=\"myAccount.jsp\">Mi cuenta (");
- out.print(usr); 
-      out.write(")</a>\n");
-      out.write("                </div>\n");
-      out.write("            </nav>\n");
-      out.write("        </header>\n");
-      out.write("\n");
-      out.write("        <section align=center>\n");
-      out.write("            <h1>Actividades</h1>\n");
-      out.write("        </section>\n");
-      out.write("\n");
-      out.write("        <table border=\"1\" align=\"center\" >\n");
-      out.write("            <tr bgcolor=\"#ccc\">\n");
-      out.write("                <th>Id Actividad</th>\n");
-      out.write("                <th>Actividad</th>\n");
-      out.write("                <th>&Aacute;rea</th>\n");
-      out.write("                <th>Encargado</th>\n");
-      out.write("                <th>Inicio de actividad</th>\n");
-      out.write("                <th>T&eacute;rmino de actividad</th>\n");
-      out.write("            </tr>\n");
-      out.write("\n");
+ out.print(usu.getMail()); 
+      out.write(")</a>\r\n");
+      out.write("                </div>\r\n");
+      out.write("            </nav>\r\n");
+      out.write("        </header>\r\n");
+      out.write("\r\n");
+      out.write("        <section align=center>\r\n");
+      out.write("            <h1>Actividades</h1>\r\n");
+      out.write("        </section>\r\n");
+      out.write("\r\n");
+      out.write("        <table border=\"1\" align=\"center\" >\r\n");
+      out.write("            <tr bgcolor=\"#ccc\">\r\n");
+      out.write("                <th>Id Actividad</th>\r\n");
+      out.write("                <th>Actividad</th>\r\n");
+      out.write("                <th>&Aacute;rea</th>\r\n");
+      out.write("                <th>Encargado</th>\r\n");
+      out.write("                <th>Inicio de actividad</th>\r\n");
+      out.write("            </tr>\r\n");
+      out.write("\r\n");
       out.write("            ");
 
               String cod = request.getParameter("user_mail");
@@ -108,42 +113,35 @@ public final class activitiesOp_jsp extends org.apache.jasper.runtime.HttpJspBas
               try {
                 con = cn.getConnection();
                 st = con.createStatement();
-                rs = st.executeQuery("select * from actividades where lider_act = (select rfc_usr from usuarios where correo_usr='"+usr+"')");
+                rs = st.executeQuery("select * from actividades where lider_act = (select rfc_usr from usuarios where correo_usr='"+usu.getMail()+"') and estatus_act = 'no concluida'");
 
                 while (rs.next()) {
             
-      out.write("\n");
-      out.write("            <tr>\n");
+      out.write("\r\n");
+      out.write("            <tr>\r\n");
       out.write("                <th> ");
       out.print(rs.getString("id_act"));
-      out.write(" </th>\n");
+      out.write(" </th>\r\n");
       out.write("                <th> ");
       out.print(rs.getString("nombre_act"));
-      out.write("  </th>\n");
+      out.write("  </th>\r\n");
       out.write("                <th> ");
       out.print(rs.getString("area_act"));
-      out.write("    </th>\n");
+      out.write("    </th>\r\n");
       out.write("                <th> ");
       out.print(rs.getString("lider_act"));
-      out.write("   </th>\n");
+      out.write("   </th>\r\n");
       out.write("                <th> ");
       out.print(rs.getString("ini_act"));
-      out.write("     </th>\n");
-      out.write("                <th> ");
-      out.print(rs.getString("fin_act"));
-      out.write("     </th>\n");
-      out.write("                <th> \n");
-      out.write("                    <a>\n");
-      out.write("                        <img src=\"img/icon_details.png\" width=\"18px\" height=\"auto\">\n");
-      out.write("                    </a>\n");
-      out.write("                    |\n");
-      out.write("                    <a href=\"delete.jsp?cod=");
+      out.write("     </th>\r\n");
+      out.write("                <th> \r\n");
+      out.write("                    <a href=\"endact.jsp?cod=");
       out.print(rs.getString("id_act"));
-      out.write("\">\n");
-      out.write("                        <img src=\"img/icon_finish.png\" width=\"18px\" height=\"auto\">\n");
-      out.write("                    </a>\n");
-      out.write("                </th>\n");
-      out.write("            </tr>        \n");
+      out.write("\">\r\n");
+      out.write("                        <img src=\"img/icon_finish.png\" width=\"18px\" height=\"auto\">\r\n");
+      out.write("                    </a>\r\n");
+      out.write("                </th>\r\n");
+      out.write("            </tr>        \r\n");
       out.write("            ");
   }
                 st.close();
@@ -153,15 +151,15 @@ public final class activitiesOp_jsp extends org.apache.jasper.runtime.HttpJspBas
               }
 
             
-      out.write("\n");
-      out.write("        </table>\n");
-      out.write("\n");
-      out.write("        <footer class=\"footer\">\n");
-      out.write("            <hr width=700><br>\n");
-      out.write("            Copyright &copy; 2020 GRUPO LAVAGÓMEZ\n");
-      out.write("        </footer>\n");
-      out.write("    </body>\n");
-      out.write("</html>\n");
+      out.write("\r\n");
+      out.write("        </table>\r\n");
+      out.write("\r\n");
+      out.write("        <footer class=\"footer\">\r\n");
+      out.write("            <hr width=700><br>\r\n");
+      out.write("            Copyright &copy; 2020 GRUPO LAVAGÓMEZ\r\n");
+      out.write("        </footer>\r\n");
+      out.write("    </body>\r\n");
+      out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

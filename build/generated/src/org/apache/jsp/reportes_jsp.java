@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import model.User;
 import model.Connect;
 import java.sql.*;
 
@@ -48,6 +49,8 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -59,6 +62,16 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link href=\"https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap\" rel=\"stylesheet\">\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
+      out.write("        ");
+
+              request.getSession();
+              User usu = (User) session.getAttribute("usuario");
+              
+              if(usu == null){
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+              }
+            
+      out.write("\n");
       out.write("        <header>\n");
       out.write("            <div>\n");
       out.write("                <a href=\"index.jsp\">\n");
@@ -76,15 +89,24 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <a href=\"createactivities.jsp\">Crear Actividad</a>\n");
       out.write("                </div>\n");
       out.write("                <div>\n");
-      out.write("                    <a href=\"#.jsp\">Mi cuenta</a>\n");
+      out.write("                    <a href=\"myAccountAd.jsp\">Mi cuenta(");
+ out.print(usu.getMail());
+      out.write(")</a>\n");
       out.write("                </div>\n");
       out.write("            </nav>\n");
       out.write("        </header>\n");
       out.write("\n");
       out.write("        <section align=center>\n");
+      out.write("            <br>\n");
       out.write("            <h1>Reportes</h1>\n");
       out.write("        </section>\n");
-      out.write("\n");
+      out.write("        \n");
+      out.write("         <section align=center>\n");
+      out.write("              <br>\n");
+      out.write("              <a href=\"reports/GenerarReporteGeneral.jsp\" class=\"btns\">Generar Reporte global</a><br>\n");
+      out.write("             <br>\n");
+      out.write("        </section>\n");
+      out.write("        \n");
       out.write("        <table border=\"1\" align=\"center\" >\n");
       out.write("            <tr bgcolor=\"#ccc\">\n");
       out.write("                <th>Id Reporte</th>\n");
@@ -124,16 +146,22 @@ public final class reportes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <th> ");
       out.print(rs.getString("actividad_rep"));
       out.write("     </th>\n");
-      out.write("                <th> \n");
+      out.write("                <th>\n");
       out.write("                    <a>\n");
       out.write("                        <img src=\"img/icon_details.png\" width=\"18px\" height=\"auto\">\n");
       out.write("                    </a>\n");
-      out.write("                    |\n");
+      out.write("\n");
       out.write("                    <a href=\"deleteRep.jsp?cod=");
       out.print(rs.getString("id_reporte"));
       out.write("\">\n");
       out.write("                        <img src=\"img/icon_delete.png\" width=\"18px\" height=\"auto\">\n");
       out.write("                    </a>\n");
+      out.write("                </th>\n");
+      out.write("                <th>\n");
+      out.write("                    <a href=\"\" class=\"btns\">\n");
+      out.write("                        Generar Reporte\n");
+      out.write("                    </a>\n");
+      out.write("                    <br>\n");
       out.write("                </th>\n");
       out.write("            </tr>        \n");
       out.write("            ");
