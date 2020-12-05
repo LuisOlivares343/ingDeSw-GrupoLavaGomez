@@ -4,7 +4,6 @@
     Author     : Luis Olivares
 --%>
 
-<%@page import="model.Operations"%>
 <%@page import="controllers.Login"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
