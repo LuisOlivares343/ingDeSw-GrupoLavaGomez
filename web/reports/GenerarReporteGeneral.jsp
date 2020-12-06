@@ -38,8 +38,7 @@
         output.flush();
         output.close();
 
-        %>  
-        
+        %>        
         
     </body>
 </html>
