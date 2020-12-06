@@ -12,7 +12,7 @@
 <%
   request.getSession();
   User usu = (User) session.getAttribute("usuario");
-
+  
   if (usu == null) {
     request.getRequestDispatcher("login.jsp").forward(request, response);
   } else {
