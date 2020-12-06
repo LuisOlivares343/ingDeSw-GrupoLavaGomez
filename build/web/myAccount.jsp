@@ -9,6 +9,14 @@
 <%@page import="model.Connect"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true"%>
+<%
+  request.getSession();
+  User usu = (User) session.getAttribute("usuario");
+
+  if (usu == null) {
+    request.getRequestDispatcher("login.jsp").forward(request, response);
+  } else {
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,14 +28,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     </head>
     <body>
-        <%
-              request.getSession();
-              User usu = (User) session.getAttribute("usuario");
-              
-              if(usu == null){
-                request.getRequestDispatcher("login.jsp").forward(request, response);
-              }
-            %>
         <header>
             <div>
                 <a href="index.jsp">
@@ -86,3 +86,4 @@
         </footer>
     </body>
 </html>
+<%}%>
