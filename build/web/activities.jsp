@@ -84,7 +84,7 @@
                 <th> <%=rs.getString("ini_act")%>     </th>
                 <th> <%=rs.getString("fin_act")%>     </th>
                 <th> 
-                    <a>
+                    <a href="details.jsp?cod=<%=rs.getString("id_act")%>">
                         <img src="img/icon_details.png" width="18px" height="auto">
                     </a>
                     |

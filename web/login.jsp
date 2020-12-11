@@ -27,9 +27,6 @@
         <div>
           <a href="login.jsp">Inicio</a>
         </div>
-        <div>
-          <a href="register.jsp">Registrarse</a>
-        </div>
       </nav>
     </header>
     <section align=center>

@@ -5,12 +5,18 @@
         <group>
             <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/src/java/controllers/LogOutServlet.java</file>
             <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/createactivities.jsp</file>
+            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/src/java/controllers/Login.java</file>
+            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/login.jsp</file>
+            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/index.jsp</file>
+            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/myAccount.jsp</file>
+            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/css/style.css</file>
+            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/activities.jsp</file>
             <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/reportes.jsp</file>
+            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/details.jsp</file>
             <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/activitiesOp.jsp</file>
             <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/src/java/controllers/Create.java</file>
-            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/login.jsp</file>
-            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/src/java/controllers/Login.java</file>
-            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/myAccount.jsp</file>
+            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/myAccountAd.jsp</file>
+            <file>file:/C:/Users/noble/Desktop/ISC/UN7/Ing%20de%20sw/grupoLavagomez/web/endact.jsp</file>
         </group>
     </open-files>
 </project-private>
